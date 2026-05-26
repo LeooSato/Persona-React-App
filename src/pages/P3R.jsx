@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
 
-function P3R() {
+export default function P3R() {
   return (
-    <div className="placeholder p3">
-      <h1>Persona 3 Reload</h1>
-      <p>Em breve...</p>
-      <Link to="/">← Voltar pro Hub</Link>
+    <div className="pagina-p3">
+      <header className="cabecalho cabecalho-p3">
+        <Link to="/" className="voltar-p3">← Hub</Link>
+        <h1 className="titulo-p3">Persona 3 Reload</h1>
+      </header>
+      <p style={{ marginTop: '2rem', fontSize: '1.2rem' }}>Em breve.</p>
     </div>
   )
 }
-
-export default P3R
