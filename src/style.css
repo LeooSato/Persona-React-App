@@ -1,0 +1,154 @@
+/* css basico do hub */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: 'Roboto Condensed', sans-serif;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: transparent; color: inherit; }
+
+/* HUB */
+.hub {
+  background-color: #111;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.split {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+.split-p5 {
+  background-color: #e60012;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+  z-index: 2;
+}
+.split-p3 {
+  background-color: #0055ff;
+  position: absolute;
+  right: 0;
+  width: 60%;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+}
+.bg-image {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.3;
+  transition: transform 0.5s;
+}
+.split-p5 .bg-image {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0,0,0,0.1) 20px, rgba(0,0,0,0.1) 40px);
+}
+.split-p3 .bg-image {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.1) 2px, transparent 3px);
+  background-size: 30px 30px;
+}
+.split-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transform: skewX(-10deg);
+  transition: transform 0.3s;
+}
+.split-content h1 {
+  font-size: 4rem;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+}
+.fonte-p5 { font-family: 'Anton', sans-serif; }
+.fonte-p3 { font-family: 'Exo 2', sans-serif; font-style: italic; }
+.botao-hub {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 30px;
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+}
+.split:hover { width: 55%; z-index: 10; }
+.split:hover .bg-image { transform: scale(1.1); opacity: 0.5; }
+.split:hover .split-content { transform: skewX(-10deg) scale(1.1); }
+.split:hover + .split { width: 45%; }
+
+@media (max-width: 768px) {
+  .hub { flex-direction: column; }
+  .split { width: 100%; height: 50%; }
+  .split-p5 { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+  .split-p3 {
+    width: 100%; height: 55%;
+    bottom: 0; top: auto;
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+  .split:hover { height: 60%; width: 100%; }
+  .split-content h1 { font-size: 2.5rem; }
+}
+
+/* placeholders */
+.placeholder {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+.placeholder.p5 {
+  background-color: #0d0003;
+  color: #fff;
+}
+.placeholder.p3 {
+  background-color: #000a1a;
+  color: #e6f2ff;
+}
+.placeholder h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.placeholder.p5 h1 {
+  color: #de0015;
+  font-family: 'Anton', sans-serif;
+}
+.placeholder.p3 h1 {
+  color: #4dffff;
+  font-family: 'Exo 2', sans-serif;
+  font-style: italic;
+}
+.placeholder p { margin-bottom: 2rem; opacity: 0.7; }
+.placeholder a {
+  padding: 0.6rem 1.4rem;
+  border: 2px solid currentColor;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.placeholder.p5 a { color: #de0015; }
+.placeholder.p3 a { color: #00aaff; }
