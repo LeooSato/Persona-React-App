@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// proxy de dev pra simular a serverless function /api/proxy que roda na vercel
-// (em prod a vercel intercepta /api/proxy direto)
+// dev: encaminha /api/proxy?url=X pra X (em producao a vercel resolve via serverless function)
 export default defineConfig({
   plugins: [react()],
   server: {
