@@ -3,7 +3,7 @@ import Hub from './pages/Hub.jsx'
 import P5R from './pages/P5R.jsx'
 import P3R from './pages/P3R.jsx'
 
-function App() {
+export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Hub />} />
@@ -12,5 +12,3 @@ function App() {
     </Routes>
   )
 }
-
-export default App
