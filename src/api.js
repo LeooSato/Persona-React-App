@@ -1,5 +1,4 @@
-// chamada pra api do p5r
-// usa nosso proxy serverless em /api/proxy (vercel) pra contornar o cors do render
+// chamada pra api do p5r (passa pelo nosso proxy serverless)
 export async function buscarP5R() {
   const apiUrl = 'https://mpppersona5-api.onrender.com/personas/'
   const url = '/api/proxy?url=' + encodeURIComponent(apiUrl)
